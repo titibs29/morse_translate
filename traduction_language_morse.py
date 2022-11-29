@@ -67,8 +67,7 @@ dico = {
         "@":".--.-."
         }
 
-regexMorse=re.compile(
-    r'''((\.|-|\s)(\.|-)*(\s))''',re.VERBOSE)
+regexMorse = re.compile(r'''((\.|-|\s)(\.|-)*(\s))''',re.VERBOSE)
 
 
 """translate text to morse"""
@@ -95,7 +94,6 @@ def morseToAlpha(Input:str):
 
 
 if __name__ == "__main__":
-    
     morse = True
     Input = input("texte à traduire:\n")
     for letter in Input:
