@@ -1,15 +1,15 @@
-#
-# morse.py
-#
-# ce code traduira l'entree en morse et inversement
-#
-# this code will translate any input into morse and back
-#
-# auteur :
-#   Thibaut Rizzoli (thibaut.rizzoli@hotmail.be)
-#
-# Copyright (c) 2020
-#
+"""
+morse.py
+
+ce code traduira l'entree en morse et inversement
+
+this code will translate any input into morse and back
+
+auteur :
+  Thibaut Rizzoli (thibaut.rizzoli@hotmail.be)
+
+Copyright (c) 2020-2022
+"""
 
 import re
 
@@ -70,19 +70,19 @@ dico = {
 regexMorse = re.compile(r'''((\.|-|\s)(\.|-)*(\s))''', re.VERBOSE)
 
 
-def alphaToMorse(atom: str):
+def alpha_to_morse(atom: str):
     """translate text to morse"""
     temp_morse = []
-    for letter in atom:
-        letter.lower()
-        if letter in dico:
-            temp_morse.append(dico[letter])
+    atom = atom.lower()
+    for i in atom:
+        if i in dico:
+            temp_morse.append(dico[i])
         else:
-            temp_morse.append(letter)
+            temp_morse.append(i)
     return temp_morse
 
 
-def morseToAlpha(mtoa: str):
+def morse_to_alpha(mtoa: str):
     """translate morse to text"""
     temp_text = []
     if mtoa[-1] != " ":
@@ -95,15 +95,15 @@ def morseToAlpha(mtoa: str):
 
 
 if __name__ == "__main__":
-    morse = True
+    MORSE = True
     text = input("texte à traduire:\n")
     for letter in text:
         if letter not in (".", "-", " "):
-            morse = False
+            MORSE = False
             break
-        morse = True
-    if morse is True:
+        MORSE = True
+    if MORSE is True:
 
-        print("".join(morseToAlpha(text)))
+        print("".join(morse_to_alpha(text)))
     else:
-        print("".join(alphaToMorse(text)))
+        print("".join(alpha_to_morse(text)))
