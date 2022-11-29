@@ -75,7 +75,7 @@ def alphaToMorse(Input:str):
     morse = []
     for letter in Input:
         letter.lower()
-        if letter in dico.keys():
+        if letter in dico:
             morse.append(dico[letter])
         else:
             morse.append(letter)
