@@ -81,6 +81,7 @@ def alphaToMorse(atom: str):
             temp_morse.append(letter)
     return temp_morse
 
+
 def morseToAlpha(mtoa: str):
     """translate morse to text"""
     temp_text = []
