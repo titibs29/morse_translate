@@ -103,7 +103,7 @@ if __name__ == "__main__":
     morse = True
     Input = input("texte à traduire:\n")
     for letter in Input:
-        if letter != "." and letter != "-" and letter != " ":
+        if letter not in (".", "-", " "):
             morse = False
             break
         else:
