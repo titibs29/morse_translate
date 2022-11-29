@@ -72,7 +72,7 @@ regexMorse=re.compile(
 
 
 """translate text to morse"""
-def alphaToMorse(Input):
+def alphaToMorse(Input:str):
     morse = []
     for letter in Input:
         letter.lower()
@@ -83,7 +83,7 @@ def alphaToMorse(Input):
     return morse
 
 """translate morse to text"""
-def morseToAlpha(Input):
+def morseToAlpha(Input:str):
     text = []
     if Input[-1] != " ":
         Input += " "
