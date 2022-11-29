@@ -70,10 +70,10 @@ dico = {
 regexMorse = re.compile(r'''((\.|-|\s)(\.|-)*(\s))''', re.VERBOSE)
 
 
-def alphaToMorse(Input: str):
+def alphaToMorse(atom:str):
     """translate text to morse"""
     morse = []
-    for letter in Input:
+    for letter in atom:
         letter.lower()
         if letter in dico:
             morse.append(dico[letter])
@@ -81,13 +81,12 @@ def alphaToMorse(Input: str):
             morse.append(letter)
     return morse
 
-
-def morseToAlpha(Input: str):
+def morseToAlpha(mtoa:str):
     """translate morse to text"""
     text = []
-    if Input[-1] != " ":
-        Input += " "
-    for group in regexMorse.findall(Input):
+    if mtoa[-1] != " ":
+        mtoa += " "
+    for group in regexMorse.findall(mtoa):
         for key, value in dico.items():
             if value == group[0]:
                 text.append(key)
@@ -96,14 +95,14 @@ def morseToAlpha(Input: str):
 
 if __name__ == "__main__":
     morse = True
-    Input = input("texte à traduire:\n")
-    for letter in Input:
+    text = input("texte à traduire:\n")
+    for letter in text:
         if letter not in (".", "-", " "):
             morse = False
             break
         morse = True
     if morse is True:
 
-        print("".join(morseToAlpha(Input)))
+        print("".join(morseToAlpha(text)))
     else:
-        print("".join(alphaToMorse(Input)))
+        print("".join(alphaToMorse(text)))
