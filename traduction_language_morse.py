@@ -70,8 +70,8 @@ dico = {
 regexMorse = re.compile(r'''((\.|-|\s)(\.|-)*(\s))''',re.VERBOSE)
 
 
-"""translate text to morse"""
 def alphaToMorse(Input:str):
+    """translate text to morse"""
     morse = []
     for letter in Input:
         letter.lower()
@@ -81,8 +81,8 @@ def alphaToMorse(Input:str):
             morse.append(letter)
     return morse
 
-"""translate morse to text"""
 def morseToAlpha(Input:str):
+    """translate morse to text"""
     text = []
     if Input[-1] != " ":
         Input += " "
