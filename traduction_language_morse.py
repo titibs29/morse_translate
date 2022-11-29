@@ -72,25 +72,25 @@ regexMorse = re.compile(r'''((\.|-|\s)(\.|-)*(\s))''', re.VERBOSE)
 
 def alphaToMorse(atom:str):
     """translate text to morse"""
-    morse = []
+    temp_morse = []
     for letter in atom:
         letter.lower()
         if letter in dico:
-            morse.append(dico[letter])
+            temp_morse.append(dico[letter])
         else:
-            morse.append(letter)
-    return morse
+            temp_morse.append(letter)
+    return temp_morse
 
 def morseToAlpha(mtoa:str):
     """translate morse to text"""
-    text = []
+    temp_text = []
     if mtoa[-1] != " ":
         mtoa += " "
     for group in regexMorse.findall(mtoa):
         for key, value in dico.items():
             if value == group[0]:
-                text.append(key)
-    return text
+                temp_text.append(key)
+    return temp_text
 
 
 if __name__ == "__main__":
