@@ -108,7 +108,7 @@ if __name__ == "__main__":
             break
         else:
             morse = True
-    if morse == True:
+    if morse is True:
         print("".join(morseToAlpha(Input)))
     else:
         print("".join(alphaToMorse(Input)))
